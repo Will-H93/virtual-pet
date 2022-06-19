@@ -48,3 +48,28 @@ describe('feed', () => {
     expect(pet.hunger).toEqual(0);
   })
 })
+
+describe('checkUp', () => {
+  it('checks if pet either needs a walk, is hungry, both or neither', () => {
+    const pet = new Pet('fido');
+
+    pet.hunger = 6
+    pet.fitness = 2
+    pet.checkUp()
+
+    if (pet.fitness <= 3 && this.hunger <= 4 ) {
+      expect(pet.wellness).toEqual('I need a walk')
+    }
+    if (pet.hunger >= 5 && this.fitness >= 4) {
+      expect(pet.wellness).toEqual('I am hungry')
+    }
+    if ((pet.hunger >= 5) && (pet.fitness <= 3)) {
+      expect(pet.wellness).toEqual('I am hungry AND I need a walk')
+    }
+    if ((pet.hunger <= 4) && (pet.fitness >= 4)) {
+      expect(pet.wellness).toEqual('I feel great')
+    }
+
+    
+  })
+})
