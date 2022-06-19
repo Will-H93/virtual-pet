@@ -37,3 +37,14 @@ describe('walk', () => {
     expect(pet.fitness).toEqual(10);
   });
 });
+
+describe('feed', () => {
+  it('increments hunger backwards by 3 unless it is less than or equal to 0, then it equals minimum hunger', () => {
+    const pet = new Pet('fido');
+
+    pet.hunger = -1;
+    pet.feed();
+
+    expect(pet.hunger).toEqual(0);
+  })
+})
