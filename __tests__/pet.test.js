@@ -148,3 +148,20 @@ describe('isAlive', () => {
     expect(pet.isAlive).toEqual(false);
   });
 })
+
+describe('haveBaby', () => {
+  it('throws an error if the pet is not alive', () => {
+    const pet = new Pet('Fido');
+
+    pet.age = 30;
+
+    expect(() => pet.haveBaby()).toThrow('Your pet is no longer alive :(');
+  });
+  it('has a child', () => {
+    const pet = new Pet('Fido');
+
+    pet.haveBaby('Amelia');
+
+    expect(pet.children[0].name).toEqual('Amelia')
+  }) 
+})
